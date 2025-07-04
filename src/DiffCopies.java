@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class DiffCopies {
     public static void main(String[] args) {
@@ -12,14 +10,14 @@ public class DiffCopies {
         for(int i = 0; i<input.length(); i++){
             list.add(input.charAt(i));
         }
-        List<List<Character>> listOfList = new ArrayList<>();
+        Set<List<Character>> listOfList = new HashSet<>();
         generator(list, listOfList, new ArrayList<>());
         for(List<Character>li: listOfList){
             System.out.println(li);
         }
 
     }
-    private static void generator(List<Character> list, List<List<Character>> listOfList, List<Character> res){
+    private static void generator(List<Character> list, Set<List<Character>> listOfList, List<Character> res){
         if(list.isEmpty()){
             listOfList.add(res);
             return;
