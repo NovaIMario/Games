@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.*;
 
 public class HangMan {
@@ -23,7 +24,7 @@ public class HangMan {
         int correct = 0;
         boolean printL = true;
         Set<Character> dupe = new HashSet<>();
-        while(lose<3){
+        while(lose<7){
             for(int i=0; i<word.length(); i++){
                 String str = guesses[i]==0? "_": guesses[i]+"";
                 System.out.print(str+" ");
@@ -55,6 +56,7 @@ public class HangMan {
                 lose++;
                 System.out.println("It was wrong");
             }
+            hangman(lose);
             if(correct==word.length()){
                 System.out.println("You got it in "+ correct + " trie/s");
                 printL = false;
@@ -64,5 +66,64 @@ public class HangMan {
         if(printL)System.out.println("You lost, the word was "+ word);
 
         scanner.close();
+    }
+    public static void hangman(int n){
+        if (n == 0){
+            System.out.println(
+                    """
+                            
+                            
+                            
+                            """
+            );
+        }
+        if (n == 1){
+            System.out.println(
+                    """
+                        o   
+                            
+                            """
+            );
+        }
+        if (n == 2){
+            System.out.println(
+                    """
+                         o   
+                         |   
+                            """
+            );
+        }
+        if (n == 3){
+            System.out.println(
+                    """
+                           o 
+                          /| 
+                            """
+            );
+        }
+        if (n == 4){
+            System.out.println(
+                    """
+                           0 
+                          /|\\ 
+                            """
+            );
+        }
+        if (n == 5){
+            System.out.println(
+                    """
+                           0 
+                          /|\\ 
+                          / """
+            );
+        }
+        if (n == 6){
+            System.out.println(
+                    """
+                           0 
+                          /|\\ 
+                          / \\"""
+            );
+        }
     }
 }
